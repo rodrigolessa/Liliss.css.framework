@@ -361,18 +361,20 @@
 				<div class="colunas seis">
 					<h4 class="lead">Redonda</h4>
 					<table class="rounded">
-					<caption>Rounded Table</caption>
+					<caption>caption</caption>
 					<thead>
-					<tr>
-					<th>Header</th>
-					<th>Header</th>
-					</tr>
+						<tr>
+							<th data-bind="text: clienteCabecalhoNome">1</th>
+							<th data-bind="text: clienteCabecalhoPrato">2</th>
+							<th data-bind="text: clienteCabecalhoValor">3</th>
+						</tr>
 					</thead>
-					<tbody>
-					<tr>
-					<td>Lorem ipsum</td>
-					<td>This is a slightly longer block of content to show how the cells will wrap when necessary</td>
-					</tr>
+					<tbody data-bind="foreach: pedidos">
+						<tr>
+							<td><input data-bind="value: nome"/></td>
+							<td><select data-bind="options: $root.pratos, value: prato, optionsText: 'nome'"></select></td>
+							<td data-bind="text: precoFormatado"></td>
+						</tr>
 					</tbody>
 					</table>
 				</div>
@@ -381,28 +383,18 @@
 					<table class="striped rounded">
 					<caption>Striped and Rounded Table</caption>
 					<thead>
-					<tr>
-					<th>Table Header</th>
-					<th>Table Header</th>
-					</tr>
+						<tr>
+							<th data-bind="text: clienteCabecalhoNome">1</th>
+							<th data-bind="text: clienteCabecalhoPrato">2</th>
+							<th data-bind="text: clienteCabecalhoValor">3</th>
+						</tr>
 					</thead>
 					<tbody>
-					<tr>
-					<td>Lorem ipsum</td>
-					<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et dignissim magna, id molestie dui.</td>
-					</tr>
-					<tr>
-					<td>Lorem ipsum</td>
-					<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et dignissim magna, id molestie dui.</td>
-					</tr>
-					<tr>
-					<td>Lorem ipsum</td>
-					<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et dignissim magna, id molestie dui.</td>
-					</tr>
-					<tr>
-					<td>Lorem ipsum</td>
-					<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et dignissim magna, id molestie dui.</td>
-					</tr>
+						<tr>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+						</tr>
 					</tbody>
 					</table>
 				</div>

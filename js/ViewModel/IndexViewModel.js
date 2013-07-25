@@ -4,6 +4,11 @@ function AnotaPedidos(name, initialMeal)
     var self = this;
     self.nome = name;
     self.prato = ko.observable(initialMeal);
+
+    self.precoFormatado = ko.computed(function() {
+    	var preco = self.prato().valor;
+    	return preco ? "R$ " + preco.toFixed(2) : "None";
+    });
 }
 
 // This is a simple *viewmodel* - JavaScript that defines the data and behavior of your UI
@@ -27,7 +32,8 @@ function IndexViewModel()
     // Editable data
     this.pedidos = ko.observableArray([
         new AnotaPedidos("Rodrigo", this.pratos[0]),
-        new AnotaPedidos("Lilia", this.pratos[1])
+        new AnotaPedidos("Lilia", this.pratos[1]),
+        new AnotaPedidos("Natalia", this.pratos[2])
     ]);
 
     //this.fullName = ko.computed(function() {
