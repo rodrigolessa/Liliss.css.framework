@@ -19,7 +19,7 @@
 
 	<link rel="stylesheet" href="/css/liliss.css">
 
-	<script src="/js/libs/modernizr-2.6.2.min.js"></script>
+	<script src="js/libs/modernizr-2.6.2.js"></script>
 
 	<style type="text/css">
 	</style>
@@ -27,13 +27,15 @@
 </head>
 <body>
 
+	<form accept-charset="UTF-8" id="mainForm" method="post">
+
 	<div class="modal" id="modal1">
 		<div class="conteudo">
 			<a class="interruptor fechar" trigger="|#modal1"><i class="icone-cancel" /></i></a>
 			<div class="linha">
 				<div class="colunas">
-					<h2>Janela modal.</h2>
-					<p>Texto exibido na janela modal.</p>
+					<h2 data-bind="text: tituloModal">título</h2>
+					<p data-bind="text: textoModal">texto</p>
 					<p class="botao primario medio"><a href="#" class="interruptor" trigger="|#modal1">Fechar Janela</a></p>
 				</div>
 			</div>
@@ -331,19 +333,21 @@
 					</form>
 				</div>
 				<div class="colunas oito">
-					<h4 class="lead">Tabela</h4>
+					<h4 class="lead">tabela</h4>
 					<table>
-						<caption>Default Table</caption>
+						<caption>caption</caption>
 						<thead>
 							<tr>
-								<th>Header</th>
-								<th>Header</th>
+								<th data-bind="text: clienteCabecalhoNome">1</th>
+								<th data-bind="text: clienteCabecalhoPrato">2</th>
+								<th data-bind="text: clienteCabecalhoValor">3</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody data-bind="foreach: pedidos">
 							<tr>
-								<td>Lorem ipsum</td>
-								<td>This is a slightly longer block of content to show how the cells will wrap when necessary</td>
+								<td data-bind="text: nome"></td>
+								<td data-bind="text: prato().nome"></td>
+								<td data-bind="text: prato().valor"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -411,6 +415,17 @@
 		</div>
 
 	</div>
+
+	</form>
+
+	<script src="js/libs/jquery-1.9.1.min.js"></script>
+	<script src="js/libs/jquery.unobtrusive-ajax.min.js"></script>
+	<script src="js/libs/jquery.validate.min.js"></script>
+	<script src="js/libs/jquery.validate.unobtrusive.min.js"></script>
+	<script src="js/libs/jquery-ui-1.8.24.min.js"></script>
+	<script src="js/libs/json2.js"></script>
+	<script src="js/libs/knockout-2.2.1.js"></script>
+	<script src="js/ViewModel/IndexViewModel.js"></script>
 
 </body>
 </html>
