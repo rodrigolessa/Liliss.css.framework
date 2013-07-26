@@ -1,9 +1,9 @@
 // Class to represent a row in the seat reservations grid
-function AnotaPedidos(name, initialMeal) 
+function AnotaPedidos(nome, entrada) 
 {
     var self = this;
-    self.nome = name;
-    self.prato = ko.observable(initialMeal);
+    self.nome = nome;
+    self.prato = ko.observable(entrada);
 
     self.precoFormatado = ko.computed(function() {
     	var preco = self.prato().valor;
@@ -11,30 +11,76 @@ function AnotaPedidos(name, initialMeal)
     });
 }
 
+function CadastrarPassageiro(nomePass, assentoPass)
+{
+	var self = this;
+	self.nome = nomePass;
+	self.assento = ko.observable(assentoPass);
+	self.janelaFormatada = ko.computed(function() {
+		var janelaSN = self.assento().janela;
+		return janelaSN == 0 ? "Não" : "Sim";
+	});
+}
+
 // This is a simple *viewmodel* - JavaScript that defines the data and behavior of your UI
 function IndexViewModel() 
 {
-    this.tituloModal = ko.observable("Janela Model");
-    this.textoModal = ko.observable("Texto exibido na janela modal...");
+	var self = this;
+    self.tituloModal = ko.observable("Janela Model");
+    self.textoModal = ko.observable("Texto exibido na janela modal...");
 
 	// Tabelas
-    this.clienteCabecalhoNome = ko.observable("Cliente");
-    this.clienteCabecalhoPrato = ko.observable("Refeição");
-    this.clienteCabecalhoValor = ko.observable("Preço");
+    self.clienteCabecalhoNome = ko.observable("Cliente");
+    self.clienteCabecalhoPrato = ko.observable("Refeição");
+    self.clienteCabecalhoValor = ko.observable("Preço");
 
     // Non-editable catalog data - would come from the server
-    this.pratos = [
-        { nome: "Standard (sandwich)", valor: 0 },
-        { nome: "Premium (lagosta)", valor: 34.95 },
-        { nome: "Ultimate (zebra)", valor: 290 }
+    self.pratos = [
+        { nome: "Comum (Sandwich)", valor: 0 },
+        { nome: "Grande (Lagosta)", valor: 34.95 },
+        { nome: "Gigante (Zebra)", valor: 290 }
     ];
 
     // Editable data
-    this.pedidos = ko.observableArray([
-        new AnotaPedidos("Rodrigo", this.pratos[0]),
-        new AnotaPedidos("Lilia", this.pratos[1]),
-        new AnotaPedidos("Natalia", this.pratos[2])
+    self.pedidos = ko.observableArray([
+        new AnotaPedidos("Rodrigo", self.pratos[0]),
+        new AnotaPedidos("Lilia", self.pratos[1]),
+        new AnotaPedidos("Natalia", self.pratos[2])
     ]);
+
+    self.totalConta = ko.computed(function() {
+		var total = 0;
+		for (var i = 0; i < self.pedidos().length; i++)
+			total += self.pedidos()[i].prato().valor;
+		return total;
+    });
+
+    // Controle de passageiros
+    self.passageiroNome = "Passageiro";
+    self.passageiroAssento = "Assento";
+    self.AssentoJanela = "Janela";
+
+    self.assentos = [
+        { numero: "A1", janela: 0 },
+        { numero: "A2", janela: 1 },
+        { numero: "B2", janela: 1 },
+        { numero: "B3", janela: 0 },
+        { numero: "C4", janela: 0 }
+    ];
+
+    self.passageiros = ko.observableArray([
+    	new CadastrarPassageiro("Rodrigo", self.assentos[0]),
+    	new CadastrarPassageiro("Lilia", self.assentos[1])
+    ]);
+
+    // Operations
+    self.addPassageiro = function() {
+        self.passageiros.push(new CadastrarPassageiro("Nome", self.assentos[3]));
+    }
+
+    self.removePassageiro = function(passageiro) { 
+    	self.passageiros.remove(passageiro)
+    }
 
     //this.fullName = ko.computed(function() {
         //return this.firstName() + " " + this.lastName();

@@ -289,19 +289,6 @@
 								<input class="xwide text input" type="text" placeholder="xwide input" />
 							</li>
 						</ul>
-						<fieldset>
-							<legend>Fieldset with legend</legend>
-							<ul>
-								<li class="field">
-									<label class="inline" for="text1">Label 1</label>
-									<input class="wide text input" name="text1" type="text" placeholder="wide input" />
-								</li>
-								<li class="field">
-									<label class="inline" for="text2">Label 2</label>
-									<input class="wide password input" name="text2" type="password" placeholder="wide input" />
-								</li>
-							</ul>
-						</fieldset>
 					</form>
 				</div>
 			</div>
@@ -332,22 +319,48 @@
 						</ul>
 					</form>
 				</div>
-				<div class="colunas oito">
+				<div class="colunas quatro">
+					<h4 class="lead">tabela</h4>
+					<form>
+						<fieldset>
+							<legend>Fieldset with legend</legend>
+							<ul>
+								<li class="field">
+									<label class="inline" for="text1">Label 1</label>
+									<input class="wide text input" name="text1" type="text" placeholder="wide input" />
+								</li>
+								<li class="field">
+									<label class="inline" for="text2">Label 2</label>
+									<input class="wide password input" name="text2" type="password" placeholder="wide input" />
+								</li>
+								<li class="field">
+									<div class="picker">
+										
+									</div>
+								</li>
+								<li class="field">
+									<button data-bind="click: addPassageiro">Reservar assento</button>
+								</li>
+							</ul>
+						</fieldset>
+					</form>
+				</div>
+				<div class="colunas quatro">
 					<h4 class="lead">tabela</h4>
 					<table>
 						<caption>caption</caption>
 						<thead>
 							<tr>
-								<th data-bind="text: clienteCabecalhoNome">1</th>
-								<th data-bind="text: clienteCabecalhoPrato">2</th>
-								<th data-bind="text: clienteCabecalhoValor">3</th>
+								<th data-bind="text: passageiroNome">1</th>
+								<th data-bind="text: passageiroAssento">2</th>
+								<th data-bind="text: AssentoJanela">3</th>
 							</tr>
 						</thead>
-						<tbody data-bind="foreach: pedidos">
+						<tbody data-bind="foreach: passageiros">
 							<tr>
-								<td data-bind="text: nome"></td>
-								<td data-bind="text: prato().nome"></td>
-								<td data-bind="text: prato().valor"></td>
+								<td data-bind="text: nome">1</td>
+								<td data-bind="text: assento().numero">2</td>
+								<td data-bind="text: janelaFormatada">3</td>
 							</tr>
 						</tbody>
 					</table>
@@ -377,11 +390,14 @@
 						</tr>
 					</tbody>
 					</table>
+					<h3 data-bind="visible: totalConta() > 0">
+						Conta: R$ <span data-bind="text: totalConta().toFixed(2)"></span>
+					</h3>
 				</div>
 				<div class="colunas seis">
 					<h4 class="lead">Redonda</h4>
 					<table class="striped rounded">
-					<caption>Striped and Rounded Table</caption>
+					<caption>caption</caption>
 					<thead>
 						<tr>
 							<th data-bind="text: clienteCabecalhoNome">1</th>
@@ -389,11 +405,11 @@
 							<th data-bind="text: clienteCabecalhoValor">3</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody data-bind="foreach: pedidos">
 						<tr>
-							<td>1</td>
-							<td>2</td>
-							<td>3</td>
+							<td data-bind="text: nome"></td>
+							<td data-bind="text: prato().nome"></td>
+							<td data-bind="text: prato().valor"></td>
 						</tr>
 					</tbody>
 					</table>
