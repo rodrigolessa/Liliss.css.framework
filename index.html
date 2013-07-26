@@ -326,20 +326,21 @@
 							<legend>Fieldset with legend</legend>
 							<ul>
 								<li class="field">
-									<label class="inline" for="text1">Label 1</label>
-									<input class="wide text input" name="text1" type="text" placeholder="wide input" />
+									<label class="inline" for="text1">Nome:</label>
+									<input class="wide text input" name="text1" type="text" placeholder="wide input" data-bind="value: txtPassageiro"/>
 								</li>
 								<li class="field">
-									<label class="inline" for="text2">Label 2</label>
+									<label class="inline" for="text2">Senha:</label>
 									<input class="wide password input" name="text2" type="password" placeholder="wide input" />
 								</li>
 								<li class="field">
 									<div class="picker">
-										
+										<label class="inline" for="select2">Assentos:</label>
+										<select name="select2" data-bind="options: $root.assentos, optionsText: 'numero'"></select>
 									</div>
 								</li>
 								<li class="field">
-									<button data-bind="click: addPassageiro">Reservar assento</button>
+									<button data-bind="click: addPassageiro, enable: passageiros().length < 5">Reservar assento</button>
 								</li>
 							</ul>
 						</fieldset>
@@ -348,7 +349,7 @@
 				<div class="colunas quatro">
 					<h4 class="lead">tabela</h4>
 					<table>
-						<caption>caption</caption>
+						<caption>Assentos reservados (<span data-bind="text: passageiros().length"></span>)</caption>
 						<thead>
 							<tr>
 								<th data-bind="text: passageiroNome">1</th>

@@ -29,6 +29,8 @@ function IndexViewModel()
     self.tituloModal = ko.observable("Janela Model");
     self.textoModal = ko.observable("Texto exibido na janela modal...");
 
+    self.txtPassageiro = "";
+
 	// Tabelas
     self.clienteCabecalhoNome = ko.observable("Cliente");
     self.clienteCabecalhoPrato = ko.observable("Refeição");
@@ -75,7 +77,8 @@ function IndexViewModel()
 
     // Operations
     self.addPassageiro = function() {
-        self.passageiros.push(new CadastrarPassageiro("Nome", self.assentos[3]));
+    	var campotexto1 = self.txtPassageiro;//self.txtPassageiro;
+        self.passageiros.push(new CadastrarPassageiro(campotexto1, self.assentos[3]));
     }
 
     self.removePassageiro = function(passageiro) { 
