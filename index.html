@@ -56,8 +56,6 @@
 					<div class="dropdown">
 						<ul>
 							<li><a href="#">Item</a></li>
-							<li><a href="#">Item</a></li>
-							<li><a href="#">Item</a></li>
 							<li>
 								<a href="#">Item com sub</a>
 								<div class="dropdown">
@@ -70,17 +68,9 @@
 									</ul>
 								</div>
 							</li>
-							<li><a href="#">Item</a></li>
-							<li><a href="#">Item</a></li>
-							<li><a href="#">Item</a></li>
-							<li><a href="#">Item</a></li>
-							<li><a href="#">Item</a></li>
-							<li><a href="#">Item</a></li>
-							<li><a href="#">Item</a></li>
 						</ul>
 					</div>
 				</li>
-				<li><a href="#">Menu 3</a></li>
 				<li class="campo"><input class="busca entrada" type="busca" placeholder="Busca" /></li>
 			</ul>
 		</div>
@@ -96,36 +86,26 @@
 		</div>
 
 		<div class="linha">
+
+
 			<div class="colunas oito">
-				<h4 class="lead">ol lista</h4>
-				<ol>
-					<li>Lista item</li>
-					<li>Lista item</li>
-					<li>Lista item</li>
-					<ul class="disc">
-						<li>Sobe item</li>
-						<li>Sobe item</li>
+				<h4 class="lead">OL - <span data-bind="text: tituloListaFrutas"></span></h4>
+				<ol data-bind="foreach: frutas">
+					<li data-bind="text: nome">item lista</li>
+					<ul data-bind="foreach: relacionadas" class="disc">
+						<li data-bind="text: nome">subitem</li>
 					</ul>
-					<li>Lista item</li>
-					<li>Lista item</li>
-					<li>Lista item</li>
-					<li>Lista item</li>
 				</ol>
 			</div>
+
+
 			<div class="colunas oito">
 				<h4 class="lead">ul lista</h4>
 				<ul>
 					<li>Lista item</li>
-					<li>Lista item</li>
-					<li>Lista item</li>
 					<ul class="disc">
-						<li>Sobe item</li>
-						<li>Sobe item</li>
+						<li>subitem</li>
 					</ul>
-					<li>Lista item</li>
-					<li>Lista item</li>
-					<li>Lista item</li>
-					<li>Lista item</li>
 				</ul>
 			</div>
 		</div>
@@ -306,13 +286,6 @@
 								<select>
 									<option value="#" disabled>Desabilitado...</option>
 									<option>Selecione 1</option>
-									<option>Selecione 2</option>
-									<option>Selecione 3</option>
-									<option>Selecione 4</option>
-									<option>Selecione 5</option>
-									<option>Selecione 6</option>
-									<option>Selecione 7</option>
-									<option>Selecione 8</option>
 								</select>
 								</div>
 							</li>

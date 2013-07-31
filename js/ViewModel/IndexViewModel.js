@@ -28,13 +28,26 @@ function IndexViewModel()
 	var self = this;
     self.tituloModal = ko.observable("Janela Model");
     self.textoModal = ko.observable("Texto exibido na janela modal...");
-
+    self.tituloListaFrutas = "Lista de Frutas da Estação";
     self.txtPassageiro = "";
 
 	// Tabelas
     self.clienteCabecalhoNome = ko.observable("Cliente");
     self.clienteCabecalhoPrato = ko.observable("Refeição");
     self.clienteCabecalhoValor = ko.observable("Preço");
+
+    // Objeto JSON para exibir frutas da estação
+    self.frutas = [
+        { nome: "Maçã", preco: 1.30, exibir: true, relacionadas: [] },
+        { nome: "Banana", preco: 1.00, exibir: true, relacionadas: [] },
+        { nome: "Morango", preco: 2.30, exibir: true, relacionadas: [] },
+        { nome: "Melancia", preco: 3.30, exibir: true, relacionadas: [] },
+        { nome: "Frutas Vermelhas", preco: 3.50, exibir: true, relacionadas: [ { nome: "Morango" }, { nome: "Cereja" }, { nome: "Amora" } ] },
+        { nome: "Uva", preco: 4.50, exibir: true, relacionadas: [] },
+        { nome: "Graviola", preco: 3.90, exibir: true, relacionadas: [] },
+        { nome: "Açaí", preco: 3.10, exibir: true, relacionadas: [] },
+        { nome: "Mamão", preco: 3.50, exibir: true, relacionadas: [] }
+    ];
 
     // Non-editable catalog data - would come from the server
     self.pratos = [
