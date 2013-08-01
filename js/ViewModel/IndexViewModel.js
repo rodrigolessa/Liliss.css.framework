@@ -92,6 +92,7 @@ function IndexViewModel()
     self.addPassageiro = function() {
     	var campotexto1 = self.txtPassageiro;//self.txtPassageiro;
         self.passageiros.push(new CadastrarPassageiro(campotexto1, self.assentos[3]));
+        self.txtPassageiro = "";
     }
 
     self.removePassageiro = function(passageiro) { 

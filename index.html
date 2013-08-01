@@ -309,7 +309,7 @@
 								<li class="field">
 									<div class="picker">
 										<label class="inline" for="select2">Assentos:</label>
-										<select name="select2" data-bind="options: $root.assentos, optionsText: 'numero'"></select>
+										<select name="select2" data-bind="options: $root.assentos, optionsText: 'numero', value: 'numero'"></select>
 									</div>
 								</li>
 								<li class="field">
@@ -335,6 +335,7 @@
 								<td data-bind="text: nome">1</td>
 								<td data-bind="text: assento().numero">2</td>
 								<td data-bind="text: janelaFormatada">3</td>
+								<td><a href="#" data-bind="click: $root.removePassageiro">excluir</a></td>
 							</tr>
 						</tbody>
 					</table>
