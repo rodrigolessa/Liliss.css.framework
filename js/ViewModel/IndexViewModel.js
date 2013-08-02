@@ -1,21 +1,20 @@
 // Class to represent a row in the seat reservations grid
-function AnotaPedidos(nome, entrada) 
+function AnotaPedidos(nome, entrada)
 {
     var self = this;
     self.nome = nome;
     self.prato = ko.observable(entrada);
-
     self.precoFormatado = ko.computed(function() {
     	var preco = self.prato().valor;
     	return preco ? "R$ " + preco.toFixed(2) : "None";
     });
 }
 
-function CadastrarPassageiro(nomePass, assentoPass)
+function CadastrarPassageiro(dados)
 {
 	var self = this;
-	self.nome = nomePass;
-	self.assento = ko.observable(assentoPass);
+	self.nome = ko.observable(dados.Nome);
+	self.assento = ko.observable(dados.Assento);
 	self.janelaFormatada = ko.computed(function() {
 		var janelaSN = self.assento().janela;
 		return janelaSN == 0 ? "Não" : "Sim";
@@ -29,7 +28,7 @@ function IndexViewModel()
     self.tituloModal = ko.observable("Janela Model");
     self.textoModal = ko.observable("Texto exibido na janela modal...");
     self.tituloListaFrutas = "Lista de Frutas da Estação";
-    self.txtPassageiro = "";
+    self.txtPassageiro = ko.observable();
 
 	// Tabelas
     self.clienteCabecalhoNome = ko.observable("Cliente");
@@ -84,15 +83,14 @@ function IndexViewModel()
     ];
 
     self.passageiros = ko.observableArray([
-    	new CadastrarPassageiro("Rodrigo", self.assentos[0]),
-    	new CadastrarPassageiro("Lilia", self.assentos[1])
+    	new CadastrarPassageiro({ Nome: "Rodrigo"  , Assento: self.assentos[0] }),
+    	new CadastrarPassageiro({ Nome: "Lilia"    , Assento: self.assentos[1] })
     ]);
 
     // Operations
     self.addPassageiro = function() {
-    	var campotexto1 = self.txtPassageiro;//self.txtPassageiro;
-        self.passageiros.push(new CadastrarPassageiro(campotexto1, self.assentos[3]));
-        self.txtPassageiro = "";
+        self.passageiros.push(new CadastrarPassageiro({ Nome: this.txtPassageiro(), Assento: self.assentos[3] }));
+        self.txtPassageiro("");
     }
 
     self.removePassageiro = function(passageiro) { 
