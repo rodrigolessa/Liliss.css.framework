@@ -25,20 +25,54 @@ html {
 html { 
 	font-size: 16px; line-height: 1.625em; 
 }
-*/
-.conteudo {
-	padding: 0px;
+
+html * { 
+	-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; 
 }
 
+body { 
+	background: white; font-family: "Open Sans"; font-weight: 400; color: #555555; position: relative; -webkit-font-smoothing: antialiased; 
+}
+
+ol, ul { 
+	list-style: none;
+}
+
+table { 
+	border-collapse: collapse; border-spacing: 0; 
+}
+
+caption, th, td { 
+	text-align: left; font-weight: normal; vertical-align: middle; 
+}
+
+a img { 
+	border: none; 
+}
+
+h1, h2, h3, h4, h5, h6 { 
+	font-family: "Open Sans"; font-weight: 300; color: #444444; text-rendering: optimizelegibility; padding-top: 0.273em; line-height: 1.15538em; padding-bottom: 0.273em; 
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { 
+	color: #d04526; 
+}
+
+.menu {}
+
+.conteudo { 
+	padding: 0px 20px;
+}
+*/
 /*	----------------------------------------------------------------------------------------------------------
 		FORMATANDO GRID PARA DIVISÃO DE ELEMENTOS DO LAYOUT
 	---------------------------------------------------------------------------------------------------------- */
 
 .linha {
 	width: 100%; 
-	max-width: 940px;
-	min-width: 320px;
-	margin: 0 auto;
+	max-width: 940px; 
+	min-width: 320px; 
+	/*margin: 0 auto;*/
 }
 
 .linha .linha {
@@ -46,43 +80,14 @@ html {
 }
 
 .coluna, .colunas {
-	min-height: 1px;
+	min-height: 1px; 
 	position: relative; 
-	float: left;
+	float: left; 
 	-webkit-box-sizing: border-box; 
 	-moz-box-sizing: border-box; 
 	box-sizing: border-box;
 }
 
-.linha .uma.coluna { width: 8.3333%; }
-.linha .duas.colunas { width: 16.6666%; }
-.linha .tres.colunas { width: 25%; }
-.linha .quatro.colunas { width: 33.3333%; }
-.linha .cinco.colunas { width: 41.6667%; }
-.linha .seis.colunas { width: 50%; }
-.linha .sete.colunas { width: 58.3335%; }
-.linha .oito.colunas { width: 66.6668%; }
-.linha .nove.colunas { width: 75.0001%; }
-.linha .dez.colunas { width: 83.3334%; }
-.linha .onze.colunas { width: 91.6667%; }
-.linha .doze.colunas { width: 100%; }
-
-/*
-.linha .uma.coluna { width: 6.5%; }
-.linha .duas.colunas { width: 15%; }
-.linha .tres.colunas { width: 23.5%; }
-.linha .quatro.colunas { width: 32%; }
-.linha .cinco.colunas { width: 40.5%; }
-.linha .seis.colunas { width: 49%; }
-.linha .sete.colunas { width: 57.5%; }
-.linha .oito.colunas { width: 66%; }
-.linha .nove.colunas { width: 74.5%; }
-.linha .dez.colunas { width: 83%; }
-.linha .onze.colunas { width: 91.5%; }
-.linha .doze.colunas { width: 100%; }
-*/
-
-/*
 .linha .uma.coluna { width: 6.38298%; }
 .linha .duas.colunas { width: 14.89362%; }
 .linha .tres.colunas { width: 23.40426%; }
@@ -95,16 +100,43 @@ html {
 .linha .dez.colunas { width: 82.97872%; }
 .linha .onze.colunas { width: 91.48936%; }
 .linha .doze.colunas { width: 100%; }
-*/
 
 /*	---------------------------------------------------------------------------------------------------------- */
 
+.dropdown {}
 .campo {}
 .busca {}
 .entrada {}
 .corpo {}
 
 .logo {}
+.retina {}
 
 /* *********************************************************************************************** */
 /* Estilos de formulários  */
+/*
+form { 
+	margin: 0 0 18px; 
+}
+form label { 
+	display: block; font-size: 16px; font-size: 1rem; line-height: 1.625em; cursor: pointer; margin-bottom: 9px; 
+}
+form label.inline { 
+	display: inline-block; padding-right: 20px; 
+}
+form dt { 
+	margin: 0; 
+}
+form textarea { 
+	height: 150px; 
+}
+form ul, form ul li { 
+	margin-left: 0; list-style-type: none; 
+}
+form fieldset { 
+	border-style: solid; border-width: 0.0625em; padding: 1.5625em; border-color: #d8d8d8; margin: 18px 0; 
+}
+form fieldset legend { 
+	padding: 5px 10px; 
+}
+*/

@@ -1,0 +1,66 @@
+html, body {
+	background: #fefefe;
+}
+
+/*	----------------------------------------------------------------------------------------------------------
+		FORMATANDO TEXTO PARA TODA A PÁGINA
+	---------------------------------------------------------------------------------------------------------- */
+
+/* Formatando linha de texto em paragrafo */
+p {
+	font-size: 16px;
+	line-height: 50px;
+	margin-bottom: 0;
+	color: #555;
+	-webkit-transition-duration: .2s;
+	-moz-transition-duration: .2s;
+	-o-transition-duration: .2s;
+	-ms-transition-duration: .2s;
+	transition-duration: .2s;
+}
+
+.conteudo {
+	padding: 20px;
+}
+
+/*	----------------------------------------------------------------------------------------------------------
+		FORMATANDO GRID (linhas e colunas) PARA TODA A PÁGINA
+	---------------------------------------------------------------------------------------------------------- */
+
+/* Deternima posição dos textos para toda a linha */
+.linha {
+	/*margin-bottom: 20px;*/
+	text-align: center;
+}
+
+/* Modifica cor de fundo e cor da borda das células das colunas do grid */
+.coluna, .colunas {
+	background: #ddd;
+	border: 1px solid #d0d0d0;
+	-webkit-transition-duration: .3s;
+	-moz-transition-duration: .3s;
+	-o-transition-duration: .3s;
+	-ms-transition-duration: .3s;
+	transition-duration: .3s;
+}
+
+/* Evento do mouse - nas células da grid: Modifica cor de fundo células das colunas do grid */
+.coluna:hover, .colunas:hover {
+	background: #efefef;
+	cursor: pointer;
+	-webkit-transition-duration: .3s;
+	-moz-transition-duration: .3s;
+	-o-transition-duration: .3s;
+	-ms-transition-duration: .3s;
+	transition-duration: .3s;
+}
+
+/* Evento do mouse - No paragrafo das células: Coloca o texto em negrito nas células das colunas do grid */
+.coluna:hover p, .colunas:hover p {
+	font-weight: bold;
+	-webkit-transition-duration: .2s;
+	-moz-transition-duration: .2s;
+	-o-transition-duration: .2s;
+	-ms-transition-duration: .2s;
+	transition-duration: .2s;
+}
